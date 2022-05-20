@@ -3916,7 +3916,7 @@ public class UnitTypes{
             drawCell = false;
             segments = 4;
             drawBody = false;
-            hidden = true;
+            hidden = false;
             crushDamage = 2f;
             aiController = HugAI::new;
             targetAir = false;
@@ -4149,7 +4149,7 @@ public class UnitTypes{
             health = 1;
             rotateSpeed = 360f;
             itemCapacity = 0;
-            hidden = true;
+            hidden = false;
             internal = true;
         }};
 
@@ -4173,7 +4173,7 @@ public class UnitTypes{
             hitSize = 11f;
             engineSize = 2.3f;
             engineOffset = 6.5f;
-            hidden = true;
+            hidden = false;
 
             setEnginesMirror(
                 new UnitEngine(24 / 4f, -24 / 4f, 2.3f, 315f)
@@ -4195,7 +4195,7 @@ public class UnitTypes{
 
             outlineColor = Pal.darkOutline;
             isEnemy = false;
-            hidden = true;
+            hidden = false;
             useUnitCap = false;
             logicControllable = false;
             playerControllable = false;
