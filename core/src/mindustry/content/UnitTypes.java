@@ -3688,7 +3688,7 @@ public class UnitTypes{
 
             }});
         }};
-
+        
         quell = new ErekirUnitType("quell"){{
             aiController = FlyingFollowAI::new;
             envDisabled = 0;
