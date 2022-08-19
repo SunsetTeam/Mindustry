@@ -6,6 +6,7 @@ import arc.math.*;
 import arc.math.geom.*;
 import arc.struct.*;
 import arc.util.*;
+import mindustry.ai.*;
 import mindustry.ai.types.*;
 import mindustry.annotations.Annotations.*;
 import mindustry.entities.*;
@@ -1247,7 +1248,10 @@ public class UnitTypes{
         //region air support
 
         mono = new UnitType("mono"){{
+            //there's no reason to command monos anywhere. it's just annoying.
             controller = u -> new MinerAI();
+
+            defaultCommand = UnitCommand.mineCommand;
 
             flying = true;
             drag = 0.06f;
@@ -1266,7 +1270,7 @@ public class UnitTypes{
         }};
 
         poly = new UnitType("poly"){{
-            controller = u -> new BuilderAI();
+            defaultCommand = UnitCommand.rebuildCommand;
 
             flying = true;
             drag = 0.05f;
@@ -1320,7 +1324,7 @@ public class UnitTypes{
         }};
 
         mega = new UnitType("mega"){{
-            controller = u -> new RepairAI();
+            defaultCommand = UnitCommand.repairCommand;
 
             mineTier = 3;
             mineSpeed = 4f;
@@ -2814,7 +2818,7 @@ public class UnitTypes{
                     }});
                 }
 
-                bullet = new BasicBulletType(8f, 250){{
+                bullet = new BasicBulletType(8f, 280f){{
                     sprite = "missile-large";
                     width = 12f;
                     height = 20f;
@@ -2853,7 +2857,7 @@ public class UnitTypes{
                             float fin = 0.05f + (j + 1) / (float)count;
                             float spd = speed;
                             float life = lifetime / Mathf.lerp(fin, 1f, 0.5f);
-                            spawnBullets.add(new BasicBulletType(spd * fin, 45){{
+                            spawnBullets.add(new BasicBulletType(spd * fin, 55){{
                                 drag = 0.002f;
                                 width = 12f;
                                 height = 11f;
@@ -3462,7 +3466,7 @@ public class UnitTypes{
                     fragLifeMin = 0.3f;
                     despawnShake = 5f;
 
-                    fragBullet = new BasicBulletType(5.5f, 60){{
+                    fragBullet = new BasicBulletType(5.5f, 55){{
                         pierceCap = 2;
                         pierceBuilding = true;
 
